@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Righteous', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #C7CDD3;
+  height: 100vh;
+}
+
+#gameBoard {
+
+  max-width: 700px;
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+  gap: 18px;
+}
+
+.card {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  cursor: pointer;
+
+  transform-style: preserve-3d;
+  transition: .5s;
+}
+
+.card_front, 
+.card_back {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(0, 0,0, 0.45);
+/* todas as faces que estiverem invertidas não estarão visíveis mas pra isso o pai deve conter um transform-style */
+  backface-visibility: hidden;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.card_front {
+  background-color: #101C2C;
+
+  transform: rotateY(180deg);
+}
+
+.card_back {
+  color: #101C2C;
+  background-color: #05C3FF;
+  font-size: 32px;
+
+}
+
+
+
+/* GAMEOVER */
+
+#gameOver {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+
+  color: white;
+  font-size: 48px;
+
+  /* quando acontecer o gameOver o display muda pra flex */
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#restart {
+  padding: 20px;
+  font-size: 20px;
+  background-color: yellow;
+  border: none;
+  border-radius: 12px;
+  margin-top: 12px;
+
+}
+
+
